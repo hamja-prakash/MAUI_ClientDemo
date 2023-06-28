@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MAUI_Demo.Views.ProductDetailsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Compat.Maui"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:loader="clr-namespace:MAUI_Demo.Views.Loader"
+    Title="ProductDetailsPage"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource LoginBackground}"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <Grid
+            Margin="0"
+            Padding="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <Grid
+                x:Name="grdMain"
+                Margin="0"
+                Padding="0"
+                HorizontalOptions="FillAndExpand"
+                RowSpacing="0"
+                VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Frame
+                    Margin="0"
+                    Padding="0"
+                    BackgroundColor="{StaticResource FrameBG}"
+                    BorderColor="Transparent"
+                    CornerRadius="0"
+                    HasShadow="False"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                    <Grid
+                        Margin="0"
+                        Padding="0"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="60" />
+                        </Grid.ColumnDefinitions>
+                        <ImageButton
+                            x:Name="imgBack"
+                            Margin="10,0"
+                            BackgroundColor="Transparent"
+                            Clicked="imgBack_Clicked"
+                            HeightRequest="30"
+                            HorizontalOptions="FillAndExpand"
+                            Source="iconback.png"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="30" />
+                        <Label
+                            x:Name="lblHeader"
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            FontFamily="Sitka"
+                            FontSize="20"
+                            HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            Text="Product Details"
+                            TextColor="White"
+                            VerticalOptions="CenterAndExpand"
+                            VerticalTextAlignment="Center" />
+                    </Grid>
+                </Frame>
+
+                <ScrollView Grid.Row="1">
+                    <Grid
+                        Margin="0"
+                        Padding="0"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <Grid
+                            x:Name="grdmain"
+                            Margin="0"
+                            Padding="0"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <ffimage:CachedImage
+                                x:Name="imgProduct"
+                                Grid.Row="0"
+                                Margin="20,0"
+                                Aspect="AspectFit"
+                                HeightRequest="300"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand" />
+
+                            <Frame
+                                Grid.Row="1"
+                                Margin="0"
+                                Padding="0,10,0,0"
+                                BackgroundColor="{StaticResource FrameBG}"
+                                BorderColor="Transparent"
+                                CornerRadius="0"
+                                HasShadow="False">
+
+                                <Grid
+                                    Margin="20,0"
+                                    HorizontalOptions="FillAndExpand"
+                                    RowSpacing="5"
+                                    VerticalOptions="FillAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label
+                                        x:Name="txtProductName"
+                                        Grid.Row="0"
+                                        FontAttributes="Bold"
+                                        FontFamily="Sitka"
+                                        FontSize="16"
+                                        HorizontalOptions="FillAndExpand"
+                                        TextColor="White" />
+
+                                    <StackLayout
+                                        Grid.Row="1"
+                                        HorizontalOptions="FillAndExpand"
+                                        Orientation="Horizontal"
+                                        Spacing="0"
+                                        VerticalOptions="FillAndExpand">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontFamily="Sitka"
+                                            FontSize="16"
+                                            Text="Price : "
+                                            TextColor="{StaticResource Label1}" />
+                                        <Label
+                                            x:Name="lblPrice"
+                                            FontFamily="Sitka"
+                                            FontSize="16"
+                                            TextColor="White" />
+                                    </StackLayout>
+
+                                    <Label
+                                        x:Name="txtProductDesc"
+                                        Grid.Row="2"
+                                        Margin="0"
+                                        FontFamily="Sitka"
+                                        FontSize="14"
+                                        TextColor="White" />
+
+                                    <Grid
+                                        Grid.Row="3"
+                                        Margin="0"
+                                        Padding="0"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontFamily="Sitka"
+                                            FontSize="16"
+                                            Text="Color"
+                                            TextColor="{StaticResource Label1}" />
+
+                                        <StackLayout
+                                            Grid.Row="1"
+                                            Margin="0,5,0,0"
+                                            HorizontalOptions="FillAndExpand"
+                                            Orientation="Horizontal"
+                                            Spacing="15"
+                                            VerticalOptions="FillAndExpand">
+                                            <Frame
+                                                Padding="0"
+                                                BackgroundColor="#EAF5F6"
+                                                CornerRadius="15"
+                                                HasShadow="False"
+                                                HeightRequest="30"
+                                                IsClippedToBounds="True"
+                                                WidthRequest="30" />
+
+                                            <Frame
+                                                Padding="0"
+                                                BackgroundColor="#C4B5B1"
+                                                CornerRadius="15"
+                                                HasShadow="False"
+                                                HeightRequest="30"
+                                                IsClippedToBounds="True"
+                                                WidthRequest="30" />
+
+                                            <Frame
+                                                Padding="0"
+                                                BackgroundColor="#FEEBEF"
+                                                CornerRadius="15"
+                                                HasShadow="False"
+                                                HeightRequest="30"
+                                                IsClippedToBounds="True"
+                                                WidthRequest="30" />
+
+                                            <Frame
+                                                Padding="0"
+                                                BackgroundColor="red"
+                                                CornerRadius="15"
+                                                HasShadow="False"
+                                                HeightRequest="30"
+                                                IsClippedToBounds="True"
+                                                WidthRequest="30" />
+                                        </StackLayout>
+                                    </Grid>
+
+                                    <Button
+                                        x:Name="FrmAddcart"
+                                        Grid.Row="4"
+                                        Margin="0,20,0,0"
+                                        BackgroundColor="White"
+                                        Clicked="FrmAddcart_Tapped"
+                                        CornerRadius="5"
+                                        FontAttributes="Bold"
+                                        FontFamily="Sitka"
+                                        FontSize="16"
+                                        HeightRequest="45"
+                                        Text="Add to Cart"
+                                        TextColor="Black" />
+                                </Grid>
+                            </Frame>
+                        </Grid>
+
+                    </Grid>
+
+                </ScrollView>
+            </Grid>
+
+            <loader:LoaderView x:Name="grdloader" IsVisible="false" />
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

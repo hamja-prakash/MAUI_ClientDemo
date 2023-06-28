@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MAUI_Demo.Views.UsersPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    Title="Customers"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource LoginBackground}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Clicked="btnAddUser_Click"
+            IconImageSource="iconadd.png"
+            Order="Primary" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <Grid
+            Margin="20,10"
+            Padding="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+
+            <Grid
+                x:Name="grdUser"
+                Margin="0"
+                Padding="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <!--<RowDefinition Height="Auto" />-->
+                </Grid.RowDefinitions>
+
+                <Frame
+                    Grid.Row="0"
+                    Margin="0,10"
+                    Padding="0"
+                    BackgroundColor="White"
+                    CornerRadius="10"
+                    HeightRequest="{OnPlatform Android=45,
+                                               iOS=50}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                    <Grid Margin="10,0">
+                        <Entry
+                            x:Name="txtSearchUser"
+                            Completed="TxtSearch_Completed"
+                            FontFamily="Sitka"
+                            FontSize="14"
+                            Placeholder="Search Customer.."
+                            TextChanged="TxtSearch_TextChanged"
+                            TextColor="Black" />
+
+                        <ImageButton
+                            Padding="{OnPlatform Android=0,
+                                                 iOS=10}"
+                            BackgroundColor="Transparent"
+                            Clicked="ImgSearch_Click"
+                            HeightRequest="{OnPlatform Android=20,
+                                                       iOS=10}"
+                            HorizontalOptions="EndAndExpand"
+                            Source="iconsearch.png"
+                            WidthRequest="{OnPlatform Android=20,
+                                                      iOS=10}" />
+                    </Grid>
+                </Frame>
+
+                <CollectionView
+                    x:Name="lstUsers"
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    Margin="0"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalScrollBarVisibility="Never"
+                    SelectionMode="None"
+                    VerticalOptions="FillAndExpand"
+                    VerticalScrollBarVisibility="Never">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout
+                            HorizontalItemSpacing="10"
+                            Orientation="Vertical"
+                            Span="1"
+                            VerticalItemSpacing="{OnPlatform Android=10,
+                                                             iOS=20}" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame
+                                Margin="0,10"
+                                Padding="10,5"
+                                BackgroundColor="{StaticResource FrameBG}"
+                                BorderColor="Gray"
+                                CornerRadius="10"
+                                HorizontalOptions="FillAndExpand"
+                                IsClippedToBounds="False"
+                                VerticalOptions="FillAndExpand">
+                                <Grid
+                                    Margin="0"
+                                    Padding="0"
+                                    ColumnSpacing="20"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="Fill">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame
+                                        Grid.Column="0"
+                                        Margin="0"
+                                        Padding="0"
+                                        BackgroundColor="Transparent"
+                                        CornerRadius="{OnPlatform Android=40,
+                                                                  iOS=45}"
+                                        HasShadow="False"
+                                        HeightRequest="{OnPlatform Android=80,
+                                                                   iOS=90}"
+                                        IsClippedToBounds="True"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="{OnPlatform Android=80,
+                                                                  iOS=90}">
+                                        <Image
+                                            Margin="0"
+                                            Aspect="AspectFill"
+                                            HorizontalOptions="FillAndExpand"
+                                            Source="{Binding UserImg}"
+                                            VerticalOptions="FillAndExpand" />
+                                    </Frame>
+
+                                    <Grid
+                                        Grid.Column="1"
+                                        Margin="0"
+                                        Padding="0"
+                                        HorizontalOptions="FillAndExpand"
+                                        RowSpacing="{OnPlatform Android=0,
+                                                                iOS=5}"
+                                        VerticalOptions="CenterAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontFamily="Sitka"
+                                                FontSize="14"
+                                                Text="Name : "
+                                                TextColor="{StaticResource Label2}" />
+                                            <Label
+                                                Grid.Column="1"
+                                                FontAttributes="None"
+                                                FontFamily="Sitka"
+                                                FontSize="14"
+                                                Text="{Binding DisplayName}"
+                                                TextColor="White"
+                                                VerticalTextAlignment="Center" />
+                                        </Grid>
+
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontFamily="Sitka"
+                                                FontSize="14"
+                                                Text="Address : "
+                                                TextColor="{StaticResource Label2}" />
+                                            <Label
+                                                Grid.Column="1"
+                                                FontAttributes="None"
+                                                FontFamily="Sitka"
+                                                FontSize="14"
+                                                Text="{Binding Address}"
+                                                TextColor="White"
+                                                VerticalTextAlignment="Center" />
+                                        </Grid>
+
+                                        <Grid Grid.Row="2">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontFamily="Sitka"
+                                                FontSize="14"
+                                                Text="Mobile No : "
+                                                TextColor="{StaticResource Label2}" />
+                                            <Label
+                                                Grid.Column="1"
+                                                FontAttributes="None"
+                                                FontFamily="Sitka"
+                                                FontSize="14"
+                                                Text="{Binding MobileNo}"
+                                                TextColor="White"
+                                                VerticalTextAlignment="Center" />
+                                        </Grid>
+
+                                        <Grid Grid.Row="3">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontFamily="Sitka"
+                                                FontSize="14"
+                                                Text="Email : "
+                                                TextColor="{StaticResource Label2}" />
+                                            <Label
+                                                Grid.Column="1"
+                                                FontAttributes="None"
+                                                FontFamily="Sitka"
+                                                FontSize="14"
+                                                Text="{Binding Email}"
+                                                TextColor="White"
+                                                VerticalTextAlignment="Center" />
+                                        </Grid>
+
+                                        <StackLayout
+                                            Grid.Row="4"
+                                            Padding="0"
+                                            HorizontalOptions="EndAndExpand"
+                                            IsVisible="true"
+                                            Orientation="Horizontal"
+                                            VerticalOptions="EndAndExpand">
+                                            <ImageButton
+                                                x:Name=""
+                                                Aspect="AspectFit"
+                                                BackgroundColor="Transparent"
+                                                Clicked="BtnEdit_Tapped"
+                                                HeightRequest="20"
+                                                MinimumHeightRequest="20"
+                                                MinimumWidthRequest="20"
+                                                Source="iconedit.png"
+                                                WidthRequest="20" />
+                                            <ImageButton
+                                                Margin="10,0,0,0"
+                                                Aspect="AspectFit"
+                                                BackgroundColor="Transparent"
+                                                Clicked="BtnDelete_Tapped"
+                                                HeightRequest="20"
+                                                MinimumHeightRequest="20"
+                                                MinimumWidthRequest="20"
+                                                Source="icondelete.png"
+                                                WidthRequest="20" />
+                                        </StackLayout>
+
+                                    </Grid>
+
+                                </Grid>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FrmUser_Tapped" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <Label
+                    x:Name="lblNoDataMsg"
+                    Grid.Row="1"
+                    FontSize="18"
+                    HeightRequest="200"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="false"
+                    Text="No Data Available!"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+
+                <!--<ImageButton
+                    Grid.Row="2"
+                    Margin="{OnPlatform Android='0,10,0,10',
+                                        iOS='0,10,0,40'}"
+                    BackgroundColor="Transparent"
+                    Clicked="btnAddUser_Click"
+                    HeightRequest="60"
+                    HorizontalOptions="EndAndExpand"
+                    Source="iconadd.png"
+                    VerticalOptions="EndAndExpand"
+                    WidthRequest="60" />-->
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MAUI_Demo.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MAUI_Demo"
+    xmlns:pages="clr-namespace:MAUI_Demo.Views"
+    BackgroundColor="{StaticResource FrameBG}"
+    FlyoutBackgroundColor="{StaticResource FrameBG}"
+    FlyoutIcon="iconmenu.png"
+    Shell.FlyoutBehavior="Flyout">
+
+    <!--#region Menu-->
+
+    <Shell.FlyoutHeader Margin="20,20,20,0">
+        <ScrollView>
+            <StackLayout
+                Margin="0,0,0,10"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Vertical"
+                Spacing="10"
+                VerticalOptions="FillAndExpand">
+                <Frame
+                    Margin="0,20,0,0"
+                    Padding="0"
+                    BorderColor="White"
+                    CornerRadius="{OnPlatform Android=75,
+                                              iOS=55}"
+                    HasShadow="False"
+                    HeightRequest="{OnPlatform Android=150,
+                                               iOS=110}"
+                    HorizontalOptions="CenterAndExpand"
+                    IsClippedToBounds="True"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="{OnPlatform Android=150,
+                                              iOS=110}">
+                    <Image Aspect="AspectFill" Source="img1.jpg" />
+                </Frame>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    HorizontalTextAlignment="Center"
+                    Text="Welcome Alex"
+                    TextColor="White"
+                    VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+        </ScrollView>
+
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Home" Icon="iconhome.png">
+        <ShellContent
+            Title="Home"
+            ContentTemplate="{DataTemplate pages:DashboardPage}"
+            Route="MainPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Customers" Icon="iconuser.png">
+        <ShellContent
+            Title="Customers"
+            ContentTemplate="{DataTemplate pages:UsersPage}"
+            Route="MainPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Products" Icon="iconproduct.png">
+        <ShellContent
+            Title="Products"
+            ContentTemplate="{DataTemplate pages:ProductPage}"
+            Route="MainPage" />
+    </FlyoutItem>
+
+    <!--<FlyoutItem Title="Scan Card" Icon="iconcards.png">
+        <ShellContent
+            Title="Scan Card"
+            ContentTemplate="{DataTemplate pages:ScanCardPage}"
+            Route="MainPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Tasks" Icon="icontask.png">
+        <ShellContent
+            Title="Tasks"
+            ContentTemplate="{DataTemplate pages:TaskPage}"
+            Route="MainPage" />
+    </FlyoutItem>-->
+
+    <FlyoutItem Title="Profile" Icon="iconprofile.png">
+        <ShellContent
+            Title="Profile"
+            ContentTemplate="{DataTemplate pages:ProfilePage}"
+            Route="MainPage" />
+    </FlyoutItem>
+
+    <MenuItem
+        Clicked="btnLogout_Clicked"
+        IconImageSource="iconlogout.png"
+        Text="Logout" />
+    <Shell.FlyoutFooter>
+        <StackLayout Margin="0,0,0,20" HeightRequest="50">
+            <Label
+                Margin="0,0,10,0"
+                FontAttributes="Bold"
+                FontFamily="Sitka"
+                FontSize="14"
+                HorizontalTextAlignment="End"
+                Text="Version 1.0"
+                TextColor="White" />
+        </StackLayout>
+    </Shell.FlyoutFooter>
+
+</Shell>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MAUI_Demo.Views.ScanCardPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Scan Card"
+    BackgroundColor="{StaticResource LoginBackground}">
+    <ScrollView>
+        <Grid
+            Padding="20"
+            ColumnSpacing="10"
+            RowSpacing="20"
+            VerticalOptions="CenterAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                BackgroundColor="Transparent"
+                Clicked="btnScan_Clicked"
+                FontFamily="Sitka"
+                HorizontalOptions="End"
+                Text="📷 Scan Card"
+                TextColor="{StaticResource White}" />
+
+            <Frame
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0"
+                Padding="10,0"
+                BackgroundColor="{StaticResource FrameBG}"
+                BorderColor="Transparent"
+                CornerRadius="5"
+                HeightRequest="45"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Entry
+                    x:Name="lblHolderName"
+                    BackgroundColor="Transparent"
+                    FontFamily="Sitka"
+                    FontSize="16"
+                    Placeholder="Card Holder Name"
+                    PlaceholderColor="LightGray"
+                    TextColor="White" />
+            </Frame>
+
+            <Frame
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0"
+                Padding="10,0"
+                BackgroundColor="{StaticResource FrameBG}"
+                BorderColor="Transparent"
+                CornerRadius="5"
+                HeightRequest="45"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Entry
+                    x:Name="lblCardNumber"
+                    BackgroundColor="Transparent"
+                    FontFamily="Sitka"
+                    FontSize="16"
+                    Placeholder="Card Number"
+                    PlaceholderColor="LightGray"
+                    TextColor="White" />
+            </Frame>
+
+            <Frame
+                Grid.Row="3"
+                Grid.Column="0"
+                Margin="0"
+                Padding="10,0"
+                BackgroundColor="{StaticResource FrameBG}"
+                BorderColor="Transparent"
+                CornerRadius="5"
+                HeightRequest="45"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Entry
+                    x:Name="lblExpirationDate"
+                    BackgroundColor="Transparent"
+                    FontFamily="Sitka"
+                    FontSize="16"
+                    Placeholder="dd/mm"
+                    PlaceholderColor="LightGray"
+                    TextColor="White" />
+            </Frame>
+
+            <Frame
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="0"
+                Padding="10,0"
+                BackgroundColor="{StaticResource FrameBG}"
+                BorderColor="Transparent"
+                CornerRadius="5"
+                HeightRequest="45"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Entry
+                    x:Name="lblcvv"
+                    BackgroundColor="Transparent"
+                    FontFamily="Sitka"
+                    FontSize="16"
+                    Placeholder="Cvv"
+                    PlaceholderColor="LightGray"
+                    TextColor="White" />
+            </Frame>
+
+            <Button
+                Grid.Row="4"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                BackgroundColor="{StaticResource White}"
+                Clicked="btnScan_Clicked"
+                FontAttributes="Bold"
+                FontFamily="Sitka"
+                Text="Pay USD $30"
+                TextColor="Black" />
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MAUI_Demo.Views.RegisterPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    Title="RegisterPage"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="{StaticResource LoginBackground}"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False">
+    <ScrollView>
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Image
+                Grid.Row="0"
+                Margin="20,0,0,10"
+                HeightRequest="100"
+                HorizontalOptions="CenterAndExpand"
+                Source="logo.png" />
+
+            <!--  FontFamily="OpenSansBold"  -->
+            <Label
+                Grid.Row="1"
+                FontAttributes="Bold"
+                FontFamily="Sitka"
+                FontSize="30"
+                HorizontalOptions="CenterAndExpand"
+                Text="Registration"
+                TextColor="White"
+                VerticalOptions="CenterAndExpand" />
+
+            <Grid
+                Grid.Row="2"
+                Margin="0,10,0,0"
+                Padding="0"
+                HorizontalOptions="FillAndExpand"
+                RowSpacing="0"
+                VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackLayout
+                    Grid.Row="0"
+                    Margin="0"
+                    Padding="0"
+                    HorizontalOptions="FillAndExpand"
+                    Spacing="5"
+                    VerticalOptions="FillAndExpand">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="Sitka"
+                        FontSize="16"
+                        Text="First Name"
+                        TextColor="White" />
+
+                    <Frame
+                        Margin="0"
+                        Padding="10,0"
+                        BackgroundColor="{StaticResource FrameBG}"
+                        BorderColor="Transparent"
+                        CornerRadius="5"
+                        HeightRequest="45"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <Entry
+                            x:Name="txtFirstName"
+                            BackgroundColor="Transparent"
+                            FontFamily="Sitka"
+                            FontSize="16"
+                            Placeholder="Enter first name"
+                            PlaceholderColor="LightGray"
+                            Text="{Binding FirstName}"
+                            TextColor="White"
+                            VerticalOptions="CenterAndExpand" />
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Row="1"
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    HorizontalOptions="FillAndExpand"
+                    Spacing="5"
+                    VerticalOptions="FillAndExpand">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="Sitka"
+                        FontSize="16"
+                        Text="Last Name"
+                        TextColor="White" />
+
+                    <Frame
+                        Margin="0"
+                        Padding="10,0"
+                        BackgroundColor="{StaticResource FrameBG}"
+                        BorderColor="Transparent"
+                        CornerRadius="5"
+                        HeightRequest="45"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <Entry
+                            x:Name="txtLastName"
+                            BackgroundColor="Transparent"
+                            FontFamily="Sitka"
+                            FontSize="16"
+                            Placeholder="Enter last name"
+                            PlaceholderColor="LightGray"
+                            Text="{Binding LastName}"
+                            TextColor="White" />
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Row="2"
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    HorizontalOptions="FillAndExpand"
+                    Spacing="5"
+                    VerticalOptions="FillAndExpand">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="Sitka"
+                        FontSize="16"
+                        Text="Email Address"
+                        TextColor="White" />
+
+                    <Frame
+                        Margin="0"
+                        Padding="10,0"
+                        BackgroundColor="{StaticResource FrameBG}"
+                        BorderColor="Transparent"
+                        CornerRadius="5"
+                        HeightRequest="45"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <Entry
+                            x:Name="txtEmail"
+                            BackgroundColor="Transparent"
+                            FontFamily="Sitka"
+                            FontSize="16"
+                            Placeholder="Enter email address"
+                            PlaceholderColor="LightGray"
+                            Text="{Binding Email}"
+                            TextColor="White" />
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Row="3"
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    HorizontalOptions="FillAndExpand"
+                    Spacing="5"
+                    VerticalOptions="FillAndExpand">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="Sitka"
+                        FontSize="16"
+                        Text="Password"
+                        TextColor="White" />
+
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Frame
+                            Margin="0"
+                            Padding="10,0"
+                            BackgroundColor="{StaticResource FrameBG}"
+                            BorderColor="Transparent"
+                            CornerRadius="5"
+                            HeightRequest="45"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Entry
+                                    x:Name="txtPassword"
+                                    BackgroundColor="Transparent"
+                                    FontFamily="Sitka"
+                                    FontSize="16"
+                                    IsPassword="{Binding IsPasswordVisible}"
+                                    Placeholder="Enter password"
+                                    PlaceholderColor="LightGray"
+                                    Text="{Binding Password}"
+                                    TextColor="White" />
+
+                                <ImageButton
+                                    Command="{Binding ImgPasswordCommand}"
+                                    HorizontalOptions="EndAndExpand"
+                                    MaximumHeightRequest="25"
+                                    MaximumWidthRequest="25"
+                                    MinimumHeightRequest="20"
+                                    MinimumWidthRequest="20"
+                                    Source="{Binding Passwordicon}"
+                                    VerticalOptions="CenterAndExpand" />
+                            </Grid>
+                        </Frame>
+                        <ImageButton
+                            Grid.Column="1"
+                            Margin="5,0,0,0"
+                            HeightRequest="40"
+                            HorizontalOptions="EndAndExpand"
+                            IsVisible="false"
+                            Source="iconcheck.png"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="40" />
+                    </Grid>
+
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Row="4"
+                    Margin="0,10,0,0"
+                    Padding="0"
+                    HorizontalOptions="FillAndExpand"
+                    Spacing="5"
+                    VerticalOptions="FillAndExpand">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="Sitka"
+                        FontSize="16"
+                        Text="Confirm Password"
+                        TextColor="White" />
+
+                    <Frame
+                        Margin="0"
+                        Padding="10,0"
+                        BackgroundColor="{StaticResource FrameBG}"
+                        BorderColor="Transparent"
+                        CornerRadius="5"
+                        HeightRequest="45"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Entry
+                                x:Name="txtConfirmPassword"
+                                BackgroundColor="Transparent"
+                                FontFamily="Sitka"
+                                FontSize="16"
+                                IsPassword="{Binding IsCnfPasswordVisible}"
+                                Placeholder="Enter confirm password"
+                                PlaceholderColor="LightGray"
+                                Text="{Binding ConfirmPassword}"
+                                TextColor="White" />
+                            <ImageButton
+                                Command="{Binding ImgCnfPasswordCommand}"
+                                HorizontalOptions="EndAndExpand"
+                                MaximumHeightRequest="25"
+                                MaximumWidthRequest="25"
+                                MinimumHeightRequest="20"
+                                MinimumWidthRequest="20"
+                                Source="{Binding Confirmpasswordicon}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+
+                <Button
+                    Grid.Row="5"
+                    Margin="0,20,0,0"
+                    BackgroundColor="White"
+                    Command="{Binding SignUpCommand}"
+                    CornerRadius="5"
+                    FontAttributes="Bold"
+                    FontFamily="Sitka"
+                    FontSize="16"
+                    HeightRequest="45"
+                    Text="Sign Up"
+                    TextColor="Black" />
+
+                <StackLayout
+                    Grid.Row="6"
+                    Margin="0,10,0,0"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal"
+                    Spacing="5"
+                    VerticalOptions="EndAndExpand">
+
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="Sitka"
+                        FontSize="16"
+                        Text="Already have an account?"
+                        TextColor="White" />
+
+                    <StackLayout HorizontalOptions="EndAndExpand">
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="Sitka"
+                            FontSize="16"
+                            Text="Sign In"
+                            TextColor="{StaticResource BtnBg}" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateSignInCommand}" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="MAUI_Demo.Views.Loader.LoaderView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimage="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Compat.Maui"
+    BackgroundColor="#A2000000">
+    <ContentView.Content>
+        <Frame
+            Margin="0"
+            Padding="0"
+            BackgroundColor="Transparent"
+            BorderColor="Transparent"
+            CornerRadius="50"
+            HasShadow="True"
+            HeightRequest="200"
+            HorizontalOptions="CenterAndExpand"
+            IsClippedToBounds="True"
+            VerticalOptions="CenterAndExpand"
+            WidthRequest="200">
+            <ffimage:CachedImage
+                HeightRequest="150"
+                HorizontalOptions="CenterAndExpand"
+                Source="loader.gif"
+                VerticalOptions="CenterAndExpand"
+                WidthRequest="150" />
+        </Frame>
+    </ContentView.Content>
+</ContentView>
